@@ -2,10 +2,18 @@ package com.lucasmonteiro.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Categoria implements Serializable { // Serializable é uma interface que diz que os objetos da classe poderão ser convertidos para uma sequência de bits. Isso serve para que os onjetos possam ser gravados em arquivos, trafegar em redes, etc
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // Define a estratégia de geração automática dos Id's das categorias
 	private Integer id;
 	private String nome;
 	
