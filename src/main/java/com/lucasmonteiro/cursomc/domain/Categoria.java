@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 public class Categoria implements Serializable { // Serializable é uma interface que diz que os objetos da classe poderão ser convertidos para uma sequência de bits. Isso serve para que os onjetos possam ser gravados em arquivos, trafegar em redes, etc
 	
@@ -22,7 +20,7 @@ public class Categoria implements Serializable { // Serializable é uma interfac
 	private Integer id;
 	private String nome;
 	
-	@JsonManagedReference // Essa notação é utilizada do lado onde você quer que os objetos sejam associados e no lado oposto é colocado JsonBackReference
+	// @JsonManagedReference // Essa notação é utilizada do lado onde você quer que os objetos sejam associados e no lado oposto é colocado JsonBackReference
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
